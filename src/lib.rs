@@ -1,5 +1,4 @@
 extern crate byteorder;
-extern crate rustc_serialize;
 
 mod arith;
 mod fields;
@@ -10,7 +9,7 @@ use groups::GroupElement;
 
 use std::ops::{Add, Mul, Neg, Sub};
 
-#[derive(Copy, Clone, PartialEq, Eq, RustcDecodable, RustcEncodable)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 #[repr(C)]
 pub struct Fr(fields::Fr);
 
@@ -71,9 +70,7 @@ impl Mul for Fr {
 }
 
 pub trait Group:
-    rustc_serialize::Encodable
-    + rustc_serialize::Decodable
-    + 'static
+    'static
     + Send
     + Sync
     + Copy
@@ -92,7 +89,7 @@ pub trait Group:
     fn normalize(&mut self);
 }
 
-#[derive(Copy, Clone, PartialEq, Eq, RustcDecodable, RustcEncodable)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 #[repr(C)]
 pub struct G1(groups::G1);
 
@@ -148,7 +145,7 @@ impl Mul<Fr> for G1 {
     }
 }
 
-#[derive(Copy, Clone, PartialEq, Eq, RustcDecodable, RustcEncodable)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 #[repr(C)]
 pub struct G2(groups::G2);
 

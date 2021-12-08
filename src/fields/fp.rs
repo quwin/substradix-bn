@@ -1,8 +1,6 @@
 use super::FieldElement;
 use std::ops::{Add, Mul, Neg, Sub};
 
-use rustc_serialize::{Decodable, Decoder, Encodable, Encoder};
-
 use arith::{U256, U512};
 
 macro_rules! field_impl {
@@ -20,25 +18,17 @@ macro_rules! field_impl {
             }
         }
 
-        impl Encodable for $name {
-            fn encode<S: Encoder>(&self, s: &mut S) -> Result<(), S::Error> {
-                let normalized = U256::from(*self);
-
-                normalized.encode(s)
-            }
-        }
-
-        impl Decodable for $name {
-            fn decode<S: Decoder>(s: &mut S) -> Result<$name, S::Error> {
-                $name::new(try!(U256::decode(s))).ok_or_else(|| s.error("integer is not less than modulus"))
-            }
-        }
-
         impl $name {
             pub fn from_str(s: &str) -> Option<Self> {
                 let ints: Vec<_> = {
                     let mut acc = Self::zero();
-                    (0..11).map(|_| {let tmp = acc; acc = acc + Self::one(); tmp}).collect()
+                    (0..11)
+                        .map(|_| {
+                            let tmp = acc;
+                            acc = acc + Self::one();
+                            tmp
+                        })
+                        .collect()
                 };
 
                 let mut res = Self::zero();
@@ -47,7 +37,7 @@ macro_rules! field_impl {
                         Some(d) => {
                             res = res * ints[10];
                             res = res + ints[d as usize];
-                        },
+                        }
                         None => {
                             return None;
                         }
@@ -150,7 +140,7 @@ macro_rules! field_impl {
                 self
             }
         }
-    }
+    };
 }
 
 field_impl!(
