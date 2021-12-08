@@ -13,8 +13,7 @@ license = "MIT OR Apache-2.0"
 name = "api"
 
 [dependencies]
-rand = "~0.3.14"
-rustc-serialize = "~0.3.19"
+rustc-serialize = "=0.3.24"
 byteorder = "~0.5.3"
 
 [dev-dependencies.bincode]
