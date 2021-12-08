@@ -40,8 +40,8 @@ pub struct G<P: GroupParams> {
 }
 
 pub struct AffineG<P: GroupParams> {
-    x: P::Base,
-    y: P::Base,
+    pub x: P::Base,
+    pub y: P::Base,
 }
 
 impl<P: GroupParams> PartialEq for AffineG<P> {

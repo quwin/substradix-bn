@@ -1,8 +1,6 @@
 use fields::{const_fq, FieldElement, Fq};
 use std::ops::{Add, Mul, Neg, Sub};
 
-use arith::{U256, U512};
-
 #[inline]
 fn fq_non_residue() -> Fq {
     // (q - 1) is a quadratic nonresidue in Fq

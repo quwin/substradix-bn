@@ -1,8 +1,8 @@
 extern crate byteorder;
 
-mod arith;
-mod fields;
-mod groups;
+pub mod arith;
+pub mod fields;
+pub mod groups;
 
 use fields::FieldElement;
 use groups::GroupElement;

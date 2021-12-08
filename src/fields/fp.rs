@@ -7,7 +7,7 @@ macro_rules! field_impl {
     ($name:ident, $modulus:expr, $rsquared:expr, $rcubed:expr, $one:expr, $inv:expr) => {
         #[derive(Copy, Clone, PartialEq, Eq, Debug)]
         #[repr(C)]
-        pub struct $name(U256);
+        pub struct $name(pub U256);
 
         impl From<$name> for U256 {
             #[inline]
