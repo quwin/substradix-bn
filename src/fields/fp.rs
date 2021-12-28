@@ -1,7 +1,7 @@
 use super::FieldElement;
 use std::ops::{Add, Mul, Neg, Sub};
 
-use arith::{U256, U512};
+use crate::arith::{U256, U512};
 
 macro_rules! field_impl {
     ($name:ident, $modulus:expr, $rsquared:expr, $rcubed:expr, $one:expr, $inv:expr) => {
@@ -66,6 +66,16 @@ macro_rules! field_impl {
             #[inline]
             pub fn modulus() -> U256 {
                 U256($modulus)
+            }
+
+            #[inline]
+            pub fn rcubed() -> U256 {
+                U256($rcubed)
+            }
+
+            #[inline]
+            pub fn inv() -> u64 {
+                $inv
             }
         }
 

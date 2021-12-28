@@ -273,7 +273,7 @@ impl<'a> Iterator for BitIterator<'a> {
 
 /// Divide by two
 #[inline]
-fn div2(a: &mut [u64; 4]) {
+pub fn div2(a: &mut [u64; 4]) {
     let mut t = a[3] << 63;
     a[3] = a[3] >> 1;
     let b = a[2] << 63;
@@ -320,7 +320,7 @@ fn adc(a: u64, b: u64, carry: &mut u64) -> u64 {
 }
 
 #[inline]
-fn add_nocarry(a: &mut [u64; 4], b: &[u64; 4]) {
+pub fn add_nocarry(a: &mut [u64; 4], b: &[u64; 4]) {
     let mut carry = 0;
 
     for (a, b) in a.into_iter().zip(b.iter()) {
@@ -331,7 +331,7 @@ fn add_nocarry(a: &mut [u64; 4], b: &[u64; 4]) {
 }
 
 #[inline]
-fn sub_noborrow(a: &mut [u64; 4], b: &[u64; 4]) {
+pub fn sub_noborrow(a: &mut [u64; 4], b: &[u64; 4]) {
     #[inline]
     fn sbb(a: u64, b: u64, borrow: &mut u64) -> u64 {
         let (a1, a0) = split_u64(a);

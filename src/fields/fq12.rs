@@ -1,7 +1,7 @@
-use fields::{const_fq, FieldElement, Fq, Fq2, Fq6};
+use crate::fields::{const_fq, FieldElement, Fq, Fq2, Fq6};
 use std::ops::{Add, Mul, Neg, Sub};
 
-use arith::U256;
+use crate::arith::U256;
 
 fn frobenius_coeffs_c1(power: usize) -> Fq2 {
     match power % 12 {
@@ -50,8 +50,8 @@ fn frobenius_coeffs_c1(power: usize) -> Fq2 {
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 #[repr(C)]
 pub struct Fq12 {
-    c0: Fq6,
-    c1: Fq6,
+    pub c0: Fq6,
+    pub c1: Fq6,
 }
 
 impl Fq12 {

@@ -1,8 +1,8 @@
-use fields::{const_fq, FieldElement, Fq};
+use crate::fields::{const_fq, FieldElement, Fq};
 use std::ops::{Add, Mul, Neg, Sub};
 
 #[inline]
-fn fq_non_residue() -> Fq {
+pub fn fq_non_residue() -> Fq {
     // (q - 1) is a quadratic nonresidue in Fq
     // 21888242871839275222246405745257275088696311157297823662689037894645226208582
     const_fq([
@@ -34,8 +34,8 @@ pub fn fq2_nonresidue() -> Fq2 {
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 #[repr(C)]
 pub struct Fq2 {
-    c0: Fq,
-    c1: Fq,
+    pub c0: Fq,
+    pub c1: Fq,
 }
 
 impl Fq2 {

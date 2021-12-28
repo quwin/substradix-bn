@@ -1,5 +1,5 @@
-use arith::U256;
-use fields::{const_fq, fq2_nonresidue, FieldElement, Fq, Fq12, Fq2, Fr};
+use crate::arith::U256;
+use crate::fields::{const_fq, fq2_nonresidue, FieldElement, Fq, Fq12, Fq2, Fr};
 use std::fmt;
 use std::ops::{Add, Mul, Neg, Sub};
 
@@ -34,9 +34,9 @@ pub trait GroupParams: Sized {
 
 #[repr(C)]
 pub struct G<P: GroupParams> {
-    x: P::Base,
-    y: P::Base,
-    z: P::Base,
+    pub x: P::Base,
+    pub y: P::Base,
+    pub z: P::Base,
 }
 
 pub struct AffineG<P: GroupParams> {
@@ -392,12 +392,12 @@ fn test_g2() {
 }
 
 #[inline]
-fn twist() -> Fq2 {
+pub fn twist() -> Fq2 {
     fq2_nonresidue()
 }
 
 #[inline]
-fn two_inv() -> Fq {
+pub fn two_inv() -> Fq {
     const_fq([
         9781510331150239090,
         15059239858463337189,
@@ -407,7 +407,7 @@ fn two_inv() -> Fq {
 }
 
 #[inline]
-fn ate_loop_count() -> U256 {
+pub fn ate_loop_count() -> U256 {
     U256([
         0x9d797039be763ba8,
         0x0000000000000001,
@@ -540,7 +540,7 @@ fn test_miller_loop() {
 }
 
 impl AffineG<G2Params> {
-    fn mul_by_q(&self) -> Self {
+    pub fn mul_by_q(&self) -> Self {
         AffineG {
             x: twist_mul_by_q_x() * self.x.frobenius_map(1),
             y: twist_mul_by_q_y() * self.y.frobenius_map(1),
@@ -582,7 +582,7 @@ impl AffineG<G2Params> {
 }
 
 impl G2 {
-    fn mixed_addition_step_for_flipped_miller_loop(
+    pub fn mixed_addition_step_for_flipped_miller_loop(
         &mut self,
         base: &AffineG<G2Params>,
     ) -> EllCoeffs {
@@ -605,7 +605,7 @@ impl G2 {
         }
     }
 
-    fn doubling_step_for_flipped_miller_loop(&mut self) -> EllCoeffs {
+    pub fn doubling_step_for_flipped_miller_loop(&mut self) -> EllCoeffs {
         let a = (self.x * self.y).scale(two_inv());
         let b = self.y.squared();
         let c = self.z.squared();

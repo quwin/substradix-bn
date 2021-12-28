@@ -3,13 +3,13 @@ mod fq12;
 mod fq2;
 mod fq6;
 
-use arith::U256;
+use crate::arith::U256;
 use std::fmt::Debug;
 use std::ops::{Add, Mul, Neg, Sub};
 
 pub use self::fp::{const_fq, Fq, Fr};
 pub use self::fq12::Fq12;
-pub use self::fq2::{fq2_nonresidue, Fq2};
+pub use self::fq2::{fq_non_residue, fq2_nonresidue, Fq2};
 pub use self::fq6::Fq6;
 
 pub trait FieldElement:

@@ -203,7 +203,7 @@ impl Mul<Fr> for G2 {
 
 #[derive(Copy, Clone, PartialEq, Eq)]
 #[repr(C)]
-pub struct Gt(fields::Fq12);
+pub struct Gt(pub fields::Fq12);
 
 impl Gt {
     pub fn one() -> Self {

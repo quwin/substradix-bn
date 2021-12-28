@@ -1,4 +1,4 @@
-use fields::{const_fq, FieldElement, Fq, Fq2};
+use crate::fields::{const_fq, FieldElement, Fq, Fq2};
 use std::ops::{Add, Mul, Neg, Sub};
 
 fn frobenius_coeffs_c1(n: usize) -> Fq2 {
