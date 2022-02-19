@@ -1,6 +1,6 @@
 use std::cmp::Ordering;
 
-use byteorder::{BigEndian, ByteOrder};
+use byteorder::{BigEndian, LittleEndian, ByteOrder};
 
 /// 256-bit, stack allocated biginteger for use in prime field
 /// arithmetic.
@@ -249,6 +249,24 @@ impl U256 {
     /// MSB to LSB.
     pub fn bits(&self) -> BitIterator {
         BitIterator { int: &self, n: 256 }
+    }
+
+    pub fn interpret_buf_be(buf: &[u8; 32]) -> U256 {
+        let mut n = [0; 4];
+        for (l, i) in (0..4).rev().zip((0..4).map(|i| i * 8)) {
+            n[l] = BigEndian::read_u64(&buf[i..]);
+        }
+
+        U256(n)
+    }
+
+    pub fn interpret_buf_le(buf: &[u8; 32]) -> U256 {
+        let mut n = [0; 4];
+        for (l, i) in (0..4).zip((0..4).map(|i| i * 8)) {
+            n[l] = LittleEndian::read_u64(&buf[i..]);
+        }
+
+        U256(n)
     }
 }
 

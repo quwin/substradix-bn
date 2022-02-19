@@ -59,7 +59,7 @@ impl Fq12 {
         Fq12 { c0: c0, c1: c1 }
     }
 
-    fn final_exponentiation_first_chunk(&self) -> Option<Fq12> {
+    pub fn final_exponentiation_first_chunk(&self) -> Option<Fq12> {
         match self.inverse() {
             Some(b) => {
                 let a = self.unitary_inverse();
@@ -72,7 +72,7 @@ impl Fq12 {
         }
     }
 
-    fn final_exponentiation_last_chunk(&self) -> Fq12 {
+    pub fn final_exponentiation_last_chunk(&self) -> Fq12 {
         let a = self.exp_by_neg_z();
         let b = a.cyclotomic_squared();
         let c = b.cyclotomic_squared();

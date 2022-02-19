@@ -39,6 +39,7 @@ pub struct G<P: GroupParams> {
     pub z: P::Base,
 }
 
+#[derive(Debug)]
 pub struct AffineG<P: GroupParams> {
     pub x: P::Base,
     pub y: P::Base,
@@ -277,6 +278,7 @@ impl<P: GroupParams> Sub<G<P>> for G<P> {
     }
 }
 
+#[derive(Debug)]
 pub struct G1Params;
 
 impl GroupParams for G1Params {
@@ -311,6 +313,7 @@ impl GroupParams for G1Params {
 
 pub type G1 = G<G1Params>;
 
+#[derive(Debug)]
 pub struct G2Params;
 
 impl GroupParams for G2Params {
@@ -452,7 +455,7 @@ fn twist_mul_by_q_y() -> Fq2 {
     )
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct EllCoeffs {
     pub ell_0: Fq2,
     pub ell_vw: Fq2,
