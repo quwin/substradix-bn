@@ -2,7 +2,7 @@
 
 extern crate alloc;
 extern crate byteorder;
-
+extern crate rand;
 pub mod arith;
 pub mod fields;
 pub mod groups;
