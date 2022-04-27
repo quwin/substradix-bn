@@ -1,13 +1,20 @@
+#![no_std]
+
+extern crate alloc;
 extern crate byteorder;
 
 pub mod arith;
-pub mod fields;
-pub mod groups;
+mod fields;
+mod groups;
 
 use fields::FieldElement;
 use groups::GroupElement;
 
 use std::ops::{Add, Mul, Neg, Sub};
+
+use alloc::vec::Vec;
+use core::ops::{Add, Mul, Neg, Sub};
+use rand::Rng;
 
 #[derive(Copy, Clone, PartialEq, Eq)]
 #[repr(C)]
