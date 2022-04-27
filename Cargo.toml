@@ -1,5 +1,5 @@
 [package]
-name = "Substradix-bn"
+name = "substradix-bn"
 version = "0.4.3"
 edition = "2022"
 authors = ["Ethan Tran <ethantran.et77@gmail.com>"]
@@ -20,10 +20,3 @@ byteorder = "~0.5.3"
 version = "~0.6.0"
 default-features = false
 features = ["rustc-serialize"]
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Conta
