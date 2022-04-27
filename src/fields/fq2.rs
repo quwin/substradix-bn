@@ -1,5 +1,7 @@
+use core::ops::{Add, Mul, Neg, Sub};
+use rand::Rng;
 use crate::fields::{const_fq, FieldElement, Fq};
-use std::ops::{Add, Mul, Neg, Sub};
+use crate::arith::{U256, U512};
 
 #[inline]
 pub fn fq_non_residue() -> Fq {

@@ -1,16 +1,17 @@
 mod fp;
-mod fq12;
 mod fq2;
 mod fq6;
+mod fq12;
 
 use crate::arith::U256;
-use std::fmt::Debug;
-use std::ops::{Add, Mul, Neg, Sub};
+use rand::Rng;
+use core::ops::{Add, Mul, Neg, Sub};
+use alloc::fmt::Debug;
 
 pub use self::fp::{const_fq, Fq, Fr};
-pub use self::fq12::Fq12;
-pub use self::fq2::{fq_non_residue, fq2_nonresidue, Fq2};
+pub use self::fq2::{Fq2, fq2_nonresidue};
 pub use self::fq6::Fq6;
+pub use self::fq12::Fq12;
 
 pub trait FieldElement:
     Sized

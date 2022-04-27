@@ -1,6 +1,7 @@
-use super::FieldElement;
-use std::ops::{Add, Mul, Neg, Sub};
-
+use alloc::vec::Vec;
+use core::ops::{Add, Mul, Neg, Sub};
+use rand::Rng;
+use crate::fields::FieldElement;
 use crate::arith::{U256, U512};
 
 macro_rules! field_impl {

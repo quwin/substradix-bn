@@ -1,7 +1,10 @@
+use crate::fields::{const_fq, FieldElement, Fq, Fq12, Fq2, Fr, fq2_nonresidue};
 use crate::arith::U256;
-use crate::fields::{const_fq, fq2_nonresidue, FieldElement, Fq, Fq12, Fq2, Fr};
-use std::fmt;
-use std::ops::{Add, Mul, Neg, Sub};
+use core::{fmt, ops::{Add, Mul, Neg, Sub}};
+use rand::Rng;
+use alloc::vec::Vec;
+#[cfg(test)]
+use alloc::vec;
 
 pub trait GroupElement:
     Sized

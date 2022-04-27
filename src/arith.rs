@@ -1,6 +1,9 @@
-use std::cmp::Ordering;
+use core::cmp::Ordering;
+use rand::Rng;
+use crunchy::unroll;
 
-use byteorder::{BigEndian, LittleEndian, ByteOrder};
+use byteorder::{BigEndian, ByteOrder, LittleEndian};
+
 
 /// 256-bit, stack allocated biginteger for use in prime field
 /// arithmetic.

@@ -1,6 +1,6 @@
+use core::ops::{Add, Mul, Neg, Sub};
+use rand::Rng;
 use crate::fields::{const_fq, FieldElement, Fq, Fq2, Fq6};
-use std::ops::{Add, Mul, Neg, Sub};
-
 use crate::arith::U256;
 
 fn frobenius_coeffs_c1(power: usize) -> Fq2 {
