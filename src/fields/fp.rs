@@ -1,6 +1,6 @@
 use alloc::vec::Vec;
 use core::ops::{Add, Mul, Neg, Sub};
-use rand::Rng;
+use rand::{Rng, random};
 use crate::fields::FieldElement;
 use crate::arith::{U256, U512};
 
