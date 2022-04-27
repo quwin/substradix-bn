@@ -1,7 +1,7 @@
 [package]
 name = "substradix-bn"
 version = "0.4.3"
-edition = "2022"
+edition = "2021"
 authors = ["Ethan Tran <ethantran.et77@gmail.com>"]
 description = "Pairing cryptography with the Barreto-Naehrig curve"
 keywords = ["pairing","crypto","cryptography"]
