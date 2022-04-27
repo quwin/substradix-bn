@@ -1,13 +1,13 @@
 [package]
-name = "bn"
+name = "Substradix-bn"
 version = "0.4.3"
-edition = "2018"
-authors = ["Sean Bowe <ewillbefull@gmail.com>"]
+edition = "2022"
+authors = ["Ethan Tran <ethantran.et77@gmail.com>"]
 description = "Pairing cryptography with the Barreto-Naehrig curve"
 keywords = ["pairing","crypto","cryptography"]
 readme = "README.md"
-homepage = "https://github.com/zcash/bn"
-repository = "https://github.com/zcash/bn"
+homepage = "https://github.com/quwin/substradix-bn"
+repository = "https://github.com/quwin/substradix-bn"
 license = "MIT OR Apache-2.0"
 
 [[bench]]
@@ -20,3 +20,10 @@ byteorder = "~0.5.3"
 version = "~0.6.0"
 default-features = false
 features = ["rustc-serialize"]
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Conta
