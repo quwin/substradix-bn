@@ -24,9 +24,6 @@ impl Fr {
     pub fn one() -> Self {
         Fr(fields::Fr::one())
     }
-    pub fn random<R: Rng>(rng: &mut R) -> Self {
-        Fr(fields::Fr::random(rng))
-    }
     pub fn pow(&self, exp: Fr) -> Self {
         Fr(self.0.pow(exp.0))
     }
